@@ -32,6 +32,32 @@ const computer = {
     score: 0
 };
 
+//Evento de captura de tecla
+document.addEventListener('keydown', movePaddle);
+document.addEventListener('keyup', stopPaddle);
+
+//Movimento do usuário
+function movePaddle(event) {
+    switch(event.keyCode) {
+        case 38: //Seta para cima
+            user.dy = -8;
+            break;
+        case 40: //Seta para baixo
+            user.dy = 8;
+            break;
+    }
+}
+
+//Movimento das teclas soltas
+function stopPaddle(event) {
+    switch(event.keyCode){
+        case 38:
+        case 40:
+            user.dy = 0;
+            break;
+    }
+}
+
 //Desenho do Player
 function drawRect(x, y, w, h, color){
     //método define a cor utilizada na função drawRect
